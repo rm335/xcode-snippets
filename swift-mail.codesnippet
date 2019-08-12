@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>swift-mail</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    //MARK: MFMailComposeViewController
+
+    func presentModalMailComposerViewController(animated: Bool) {
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposeVC = MFMailComposeViewController()
+            mailComposeVC.delegate = &lt;#delegate#&gt;
+
+            mailComposeVC.setSubject(&lt;#subject#&gt;)
+            mailComposeVC.setMessageBody(&lt;#body#&gt;, isHTML: true)
+            mailComposeVC.setToRecipients([&lt;#recipients#&gt;])
+
+            present(mailComposeVC, animated: animated, completion: nil)
+        } else {
+            let alert = UIAlertController(title: NSLocalizedString("Error", value: "Error", comment: ""),
+                              message: NSLocalizedString("Your device doesn't support Mail messaging", value: "Your device doesn't support Mail messaging", comment: ""),
+                              preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
+    //MARK: MFMailComposeViewControllerDelegate
+
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+
+        if error != nil {
+            print("Error: \(error)")
+        }
+
+        dismiss(animated: true)
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>449FB7DE-54FE-4AFA-94AB-F7401AB5A5C8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>MFMailComposeViewController snippet for Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Swift MFMailComposeViewController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

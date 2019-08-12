@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>swift-message</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    //MARK: MFMessageComposeViewController
+
+    func presentModalMessageComposeViewController(animated: Bool) {
+        if MFMessageComposeViewController.canSendText() {
+            let messageComposeVC = MFMessageComposeViewController()
+
+            messageComposeVC.messageComposeDelegate = &lt;#delegate#&gt;
+            messageComposeVC.body = "&lt;#body#&gt;"
+            messageComposeVC.recipients = [&lt;#recipients#&gt;]
+
+            present(messageComposeVC, animated: animated, completion: nil)
+
+        } else {
+            let alert = UIAlertController(title: NSLocalizedString("Error", value: "Error", comment: ""),
+                              message: NSLocalizedString("Your device doesn't support messaging", value: "Your device doesn't support  messaging", comment: ""),
+                              preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
+    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+        dismiss(animated: true)
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3165F25A-E44B-4165-A15B-F04A47A0853D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>MFMessageComposeViewController snippet for Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Swift MFMessageComposeViewController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
